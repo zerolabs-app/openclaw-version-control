@@ -1,0 +1,32 @@
+{
+  "pricingLinks": [
+    {
+      "label": "OpenAI API Pricing",
+      "url": "https://openai.com/api/pricing/"
+    },
+    {
+      "label": "OpenRouter Models & Pricing",
+      "url": "https://openrouter.ai/models"
+    },
+    {
+      "label": "DeepSeek API Pricing",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    {
+      "label": "Mistral AI Pricing",
+      "url": "https://mistral.ai/products/la-plateforme#pricing"
+    },
+    {
+      "label": "Google Gemini API Pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "label": "Anthropic Claude Pricing",
+      "url": "https://www.anthropic.com/pricing"
+    },
+    {
+      "label": "Ollama Local Models",
+      "url": "https://ollama.com/library"
+    }
+  ]
+}
