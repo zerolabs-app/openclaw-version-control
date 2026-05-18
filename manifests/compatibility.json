@@ -1,1 +1,16 @@
-
+{
+  "missionControl": {
+    "1.0.0": {
+      "supportedOpenClawVersions": [
+        "2026.4.23"
+      ],
+      "recommendedOpenClawVersion": "2026.4.23"
+    }
+  },
+  "openClaw": {
+    "2026.4.23": {
+      "latestPatch": null,
+      "requiredPatches": []
+    }
+  }
+}
