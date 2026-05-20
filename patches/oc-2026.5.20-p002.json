@@ -1,0 +1,103 @@
+Apply runtime patch oc-2026.5.20-p002.
+
+Patch target:
+~/.openclaw/workspace/mission-control/prompts/recurring-task.md
+
+Patch type:
+Runtime Prompt Patch
+
+Purpose:
+Update the recurring task helper so all Mission Control recurring jobs run as proper OpenClaw workspace tasks and create persistent Agent1 artifacts.
+
+Rules:
+- Create the target file if it does not exist.
+- Replace the full file content deterministically.
+- Do not modify agent task artifacts.
+- Do not modify existing cron jobs.
+- Do not delete anything.
+- After patching, update or create:
+  ~/.openclaw/workspace/OPENCLAW_PATCHES.json
+
+Add patch ID:
+oc-2026.5.20-p002
+
+New recurring-task.md content:
+
+# Recurring Task Execution Rules
+
+Patch Chain:
+- oc-2026.5.20-p002
+
+## Execution Mode Rule
+
+This task is a recurring scheduled job.
+
+The scheduler entry persists between executions.
+
+Each execution MUST create a NEW task sequence number.
+
+Never overwrite previous runs.
+
+Never reuse old task IDs.
+
+Every scheduled execution is treated as a new task run.
+
+## Workspace Execution Rule
+
+Recurring jobs MUST execute as proper OpenClaw workspace tasks inside:
+
+~/.openclaw/workspace/agents/agent1-workspace/
+
+Each recurring run MUST create:
+
+- tasks/task-YYYY-MM-DD-###.md
+- planning/plan-YYYY-MM-DD-###.md
+- logs/log-YYYY-MM-DD-###.md
+- events/event-YYYY-MM-DD-###.json
+- results/result-YYYY-MM-DD-###.md
+- feedback/feedback-YYYY-MM-DD-###.md
+
+Use the next available same-day sequence number.
+
+The result file MUST contain the embedded final output.
+
+The event file MUST be valid JSON.
+
+The status.json file MUST be updated correctly during the run and finalized only after all required artifacts exist.
+
+## Session Target Rule
+
+Recurring jobs intended for Mission Control artifact history MUST NOT use ephemeral isolated sessions.
+
+Use a persistent named session or workspace-bound session target so the run can write to:
+
+~/.openclaw/workspace/agents/agent1-workspace/
+
+Recommended default:
+
+session:agent1-recurring
+
+A job-specific named session is allowed when useful, for example:
+
+session:tiktok-viral-report
+
+## Delivery Rule
+
+Delivery is best-effort notification behavior.
+
+Delivery failure is NOT task failure.
+
+Task success is determined by workspace artifact creation and structural consistency.
+
+If delivery fails or the delivery channel is unsupported, create a warning in the feedback file and still complete the workspace artifacts.
+
+## Final Output Rule
+
+At the end of each recurring execution, report:
+
+- files created
+- files updated
+- paths touched
+- any remaining structural issues
+
+Do not claim success until all required artifacts exist.
