@@ -1,8 +1,8 @@
 {
-  "patchId": "oc-2026.5.20-p002",
+  "patchId": "oc-2026.4.23-p002",
   "type": "runtime-prompt-patch",
   "target": "mission-control/prompts/recurring-task.md",
   "strategy": "full-replacement",
-  "version": "2026.5.20",
+  "version": "2026.4.23",
   "description": "Enforce persistent workspace-bound recurring task execution for Mission Control cron jobs."
 }
