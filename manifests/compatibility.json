@@ -2,23 +2,17 @@
   "missionControl": {
     "1.0.0": {
       "supportedOpenClawVersions": [
-        "2026.4.23",
-        "2026.5.20"
+        "2026.4.23"
       ],
-      "recommendedOpenClawVersion": "2026.5.20"
+      "recommendedOpenClawVersion": "2026.4.23"
     }
   },
   "openClaw": {
     "2026.4.23": {
-      "latestPatch": "oc-2026.4.23-p001",
+      "latestPatch": "oc-2026.4.23-p002",
       "requiredPatches": [
-        "oc-2026.4.23-p001"
-      ]
-    },
-    "2026.5.20": {
-      "latestPatch": "oc-2026.5.20-p002",
-      "requiredPatches": [
-        "oc-2026.5.20-p002"
+        "oc-2026.4.23-p001",
+        "oc-2026.4.23-p002"
       ]
     }
   }
