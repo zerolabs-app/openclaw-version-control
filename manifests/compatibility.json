@@ -9,11 +9,8 @@
   },
   "openClaw": {
     "2026.4.23": {
-      "latestPatch": "oc-2026.4.23-p002",
-      "requiredPatches": [
-        "oc-2026.4.23-p001",
-        "oc-2026.4.23-p002"
-      ]
+      "latestPatch": null,
+      "requiredPatches": []
     }
   }
 }
