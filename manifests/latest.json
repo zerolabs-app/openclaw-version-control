@@ -1,6 +1,6 @@
 {
   "missionControlVersionUrl": "https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/mission-control-version.txt",
   "openClawStableVersionUrl": "https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/version.txt",
-  "latestPatch": "oc-2026.4.23-p002",
+  "latestPatch": null,
   "patchNotesUrl": "https://github.com/zerolabs-app/openclaw-version-control/tree/main/patches"
 }
