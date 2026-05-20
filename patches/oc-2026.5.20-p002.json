@@ -1,103 +1,84 @@
-Apply runtime patch oc-2026.5.20-p002.
+# OpenClaw Patch oc-2026.5.20-p002
 
-Patch target:
-~/.openclaw/workspace/mission-control/prompts/recurring-task.md
+## Name
 
-Patch type:
+Recurring Workspace Session Enforcement Patch
+
+## Applies To
+
+- Mission Control: 1.0.0
+- OpenClaw: 2026.5.20
+
+## Purpose
+
+- Enforce persistent workspace-bound recurring task execution
+- Prevent isolated recurring sessions from bypassing Agent1 artifact creation
+- Ensure recurring jobs generate canonical workspace artifacts
+- Align recurring execution with Mission Control workspace-first architecture
+
+## Patch Type
+
 Runtime Prompt Patch
 
-Purpose:
-Update the recurring task helper so all Mission Control recurring jobs run as proper OpenClaw workspace tasks and create persistent Agent1 artifacts.
+## Patch Target
 
-Rules:
-- Create the target file if it does not exist.
-- Replace the full file content deterministically.
-- Do not modify agent task artifacts.
-- Do not modify existing cron jobs.
-- Do not delete anything.
-- After patching, update or create:
-  ~/.openclaw/workspace/OPENCLAW_PATCHES.json
+~/.openclaw/workspace/mission-control/prompts/recurring-task.md
 
-Add patch ID:
-oc-2026.5.20-p002
+## Runtime Behavior Changes
 
-New recurring-task.md content:
+- Recurring jobs now explicitly run inside:
+  ~/.openclaw/workspace/agents/agent1-workspace/
 
-# Recurring Task Execution Rules
+- Recurring jobs must:
+  - create task artifacts
+  - create planning artifacts
+  - create log artifacts
+  - create event artifacts
+  - create result artifacts
+  - create feedback artifacts
 
-Patch Chain:
-- oc-2026.5.20-p002
+- Recurring jobs must use:
+  - persistent named sessions
+  - workspace-bound session targets
 
-## Execution Mode Rule
+- Isolated ephemeral sessions are no longer recommended for Mission Control recurring jobs.
 
-This task is a recurring scheduled job.
+## Session Rules
 
-The scheduler entry persists between executions.
-
-Each execution MUST create a NEW task sequence number.
-
-Never overwrite previous runs.
-
-Never reuse old task IDs.
-
-Every scheduled execution is treated as a new task run.
-
-## Workspace Execution Rule
-
-Recurring jobs MUST execute as proper OpenClaw workspace tasks inside:
-
-~/.openclaw/workspace/agents/agent1-workspace/
-
-Each recurring run MUST create:
-
-- tasks/task-YYYY-MM-DD-###.md
-- planning/plan-YYYY-MM-DD-###.md
-- logs/log-YYYY-MM-DD-###.md
-- events/event-YYYY-MM-DD-###.json
-- results/result-YYYY-MM-DD-###.md
-- feedback/feedback-YYYY-MM-DD-###.md
-
-Use the next available same-day sequence number.
-
-The result file MUST contain the embedded final output.
-
-The event file MUST be valid JSON.
-
-The status.json file MUST be updated correctly during the run and finalized only after all required artifacts exist.
-
-## Session Target Rule
-
-Recurring jobs intended for Mission Control artifact history MUST NOT use ephemeral isolated sessions.
-
-Use a persistent named session or workspace-bound session target so the run can write to:
-
-~/.openclaw/workspace/agents/agent1-workspace/
-
-Recommended default:
+Recommended default session target:
 
 session:agent1-recurring
 
-A job-specific named session is allowed when useful, for example:
+Job-specific named sessions remain allowed.
+
+Example:
 
 session:tiktok-viral-report
 
-## Delivery Rule
+## Delivery Rules
 
-Delivery is best-effort notification behavior.
+Delivery remains best-effort behavior.
 
 Delivery failure is NOT task failure.
 
-Task success is determined by workspace artifact creation and structural consistency.
+Workspace artifacts remain the operational source of truth.
 
-If delivery fails or the delivery channel is unsupported, create a warning in the feedback file and still complete the workspace artifacts.
+## Patch Strategy
 
-## Final Output Rule
+- Deterministic full-file replacement
+- Non-destructive runtime override patch
+- Preserve existing workspace artifacts
+- Preserve existing cron jobs
 
-At the end of each recurring execution, report:
+## Files Modified
 
-- files created
-- files updated
-- paths touched
-- any remaining structural issues
+- ~/.openclaw/workspace/mission-control/prompts/recurring-task.md
+- ~/.openclaw/workspace/OPENCLAW_PATCHES.json
 
-Do not claim success until all required artifacts exist.
+## Expected Result
+
+Future recurring jobs should:
+- generate persistent Agent1 workspace artifacts
+- appear correctly in Mission Control
+- preserve recurring task history
+- avoid isolated-session artifact loss
