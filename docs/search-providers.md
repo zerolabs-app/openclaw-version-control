@@ -1,6 +1,6 @@
 # OpenClaw Search Providers
 
-## Recommended For Most Users
+## Recommended for Most Users
 
 During OpenClaw onboarding, we recommend:
 
@@ -8,13 +8,13 @@ During OpenClaw onboarding, we recommend:
 
 OpenClaw on Windows works without configuring a search provider during setup.
 
-You can always rerun:
+Search providers are optional and can be added later if you want stronger research, monitoring, shopping, listing discovery, trend analysis, or fact-finding capabilities.
+
+You can rerun onboarding at any time:
 
 ```bash
 openclaw onboard
 ```
-
-later if you want to improve research, monitoring, shopping, listings, trend analysis, or fact-finding tasks.
 
 ---
 
@@ -26,11 +26,32 @@ OpenClaw works best when it:
 2. Collects evidence
 3. Analyzes second
 
-If search results are weak, try a different search provider before changing models.
+If research quality is weak, consider trying a different search provider before changing AI models.
 
 ---
 
 # Available Search Providers
+
+## DuckDuckGo
+
+Official Site:
+
+https://duckduckgo.com/
+
+Pros
+
+* No API key required
+* Easy setup
+* Good beginner option
+* Works well for general research
+* Free to use
+
+Cons
+
+* May provide less comprehensive results than some API-based providers
+* Limited advanced search features
+
+---
 
 ## Brave Search
 
@@ -43,10 +64,12 @@ Pros
 * Strong general web search
 * Privacy focused
 * Reliable search coverage
+* Free tier available
 
 Cons
 
 * Requires API key
+* Usage charges may apply after free-tier limits
 
 ---
 
@@ -61,10 +84,12 @@ Pros
 * Excellent research capabilities
 * Designed for AI workflows
 * Strong source discovery
+* Free tier available
 
 Cons
 
 * Requires API key
+* Usage charges may apply after free-tier limits
 
 ---
 
@@ -78,10 +103,12 @@ Pros
 
 * Excellent website extraction
 * Good structured content retrieval
+* Free tier available
 
 Cons
 
 * Requires API key
+* Usage charges may apply after free-tier limits
 
 ---
 
@@ -95,10 +122,12 @@ Pros
 
 * Google-powered search ecosystem
 * Good general web coverage
+* Free tier available
 
 Cons
 
 * Requires Google API setup
+* Usage charges may apply after free-tier limits
 
 ---
 
@@ -116,6 +145,7 @@ Pros
 Cons
 
 * Requires API access
+* Review current pricing before use
 
 ---
 
@@ -133,6 +163,7 @@ Pros
 Cons
 
 * Availability varies by region
+* Review current pricing before use
 
 ---
 
@@ -152,6 +183,7 @@ Cons
 
 * Requires local Ollama installation
 * Search quality depends on configuration
+* May require additional local setup
 
 ---
 
@@ -165,10 +197,12 @@ Pros
 
 * Strong research and citations
 * Good answer quality
+* Free tier available
 
 Cons
 
 * Requires API access
+* Usage charges may apply after free-tier limits
 
 ---
 
@@ -183,10 +217,12 @@ Pros
 * Open source
 * Privacy friendly
 * Self-hostable
+* Free to use
 
 Cons
 
 * Quality depends on instance
+* May require self-hosting for best reliability
 
 ---
 
@@ -200,10 +236,22 @@ Pros
 
 * Designed specifically for AI agents
 * Strong research workflows
+* Free tier available
 
 Cons
 
 * Requires API key
+* Usage charges may apply after free-tier limits
+
+---
+
+# Important
+
+Many providers offer free tiers, trial credits, or limited free usage.
+
+Pricing, limits, availability, and features may change over time.
+
+Before enabling a provider or entering API keys, review the provider's current pricing, usage limits, and terms of service.
 
 ---
 
@@ -215,7 +263,7 @@ If you want to change providers:
 openclaw onboard
 ```
 
-and choose a different search provider.
+Choose a different search provider during onboarding.
 
 You can rerun onboarding safely at any time.
 
@@ -223,6 +271,6 @@ You can rerun onboarding safely at any time.
 
 # OpenClaw on Windows
 
-The installer recommends **Skip for now** because search providers are optional and can be configured later.
+The installer recommends **Skip for now** because search providers are optional.
 
-Most users should complete onboarding first and experiment with search providers only if they need stronger research results.
+Most users should complete onboarding first and experiment with search providers later if they need stronger research capabilities or specialized search workflows.
