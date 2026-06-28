@@ -1,2 +1,9 @@
-Model guide unavailable.
-Check GitHub model-guide.json.
+{
+  "providers": [
+    {
+      "name": "DeepSeek",
+      "rating": "Recommended",
+      "notes": "..."
+    }
+  ]
+}
