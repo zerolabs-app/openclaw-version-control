@@ -1,1 +1,38 @@
-
+[
+  {
+    "Provider": "OPENAI ChatGPT Plus",
+    "Model": "codex/gpt-5.5",
+    "Use Your LLM Account": "Yes",
+    "API Key Needed": "No",
+    "Memory": "Main",
+    "Status": "Approved",
+    "Notes": "Successfully completed OpenClaw testing."
+  },
+  {
+    "Provider": "OpenAI API",
+    "Model": "gpt-5-nano",
+    "Use Your LLM Account": "No",
+    "API Key Needed": "Yes",
+    "Memory": "Not Tested",
+    "Status": "Testing Required",
+    "Notes": "API configuration available but not yet fully validated."
+  },
+  {
+    "Provider": "DeepSeek",
+    "Model": "deepseek-chat",
+    "Use Your LLM Account": "No",
+    "API Key Needed": "Yes",
+    "Memory": "Not Tested",
+    "Status": "Testing Required",
+    "Notes": "Requires API key. Validation in progress."
+  },
+  {
+    "Provider": "Google Gemini",
+    "Model": "gemini-3.1-flash-lite-preview",
+    "Use Your LLM Account": "No",
+    "API Key Needed": "Yes",
+    "Memory": "Not Tested",
+    "Status": "Testing Required",
+    "Notes": "Requires API key. Validation in progress."
+  }
+]
