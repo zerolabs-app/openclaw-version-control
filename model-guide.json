@@ -16,7 +16,7 @@
       "Model": "gpt-5-nano",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes",
-      "Memory": "Main",
+      "Memory": "Isolated",
       "Status": "Approved",
       "Notes": "API configuration available but not yet fully validated."
     },
