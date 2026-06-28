@@ -16,8 +16,8 @@
       "Model": "gpt-5-nano",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes",
-      "Memory": "Not Tested",
-      "Status": "Testing Required",
+      "Memory": "Main",
+      "Status": "Approved",
       "Notes": "API configuration available but not yet fully validated."
     },
     {
@@ -25,8 +25,8 @@
       "Model": "deepseek-chat",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes",
-      "Memory": "Not Tested",
-      "Status": "Testing Required",
+      "Memory": "Main",
+      "Status": "Approved",
       "Notes": "Requires API key. Validation in progress."
     },
     {
@@ -34,8 +34,8 @@
       "Model": "gemini-3.1-flash-lite-preview",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes",
-      "Memory": "Not Tested",
-      "Status": "Testing Required",
+      "Memory": "Main",
+      "Status": "Approved",
       "Notes": "Requires API key. Validation in progress."
     }
   ],
