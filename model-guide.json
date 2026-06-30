@@ -1,6 +1,6 @@
 {
   "title": "OpenClaw Model Guide",
-  "lastUpdated": "2026-06-27",
+  "lastUpdated": "2026-06-29",
   "testedConfigurations": [
     {
       "Provider": "OPENAI ChatGPT Plus",
@@ -18,7 +18,7 @@
       "API Key Needed": "Yes",
       "Memory": "Isolated",
       "Status": "Approved",
-      "Notes": "API configuration available but not yet fully validated."
+      "Notes": "Successfully completed OpenClaw testing."
     },
     {
       "Provider": "DeepSeek",
@@ -27,17 +27,17 @@
       "API Key Needed": "Yes",
       "Memory": "Main",
       "Status": "Approved",
-      "Notes": "Requires API key. Validation in progress."
+      "Notes": "Successfully completed OpenClaw testing."
     },
     {
-      "Provider": "Google Gemini",
-      "Model": "gemini-3.1-flash-lite-preview",
-      "Use Your LLM Account": "No",
-      "API Key Needed": "Yes",
+      "Provider": "MiniMax",
+      "Model": "MiniMax-M2.7",
+      "Use Your LLM Account": "Yes",
+      "API Key Needed": "No",
       "Memory": "Main",
       "Status": "Approved",
-      "Notes": "Requires API key. Validation in progress."
+      "Notes": "Successfully completed OpenClaw testing."
     }
   ],
-  "bottomLine": "Currently approved: ChatGPT Plus using codex/gpt-5.5 with Main memory."
+  "bottomLine": "Currently approved providers for OpenClaw 1.0: ChatGPT Plus (codex/gpt-5.5), OpenAI API (gpt-5-nano), DeepSeek (deepseek-chat), and MiniMax (MiniMax-M2.7)."
 }
