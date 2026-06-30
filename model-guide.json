@@ -39,5 +39,5 @@
       "Notes": "Successfully completed OpenClaw testing."
     }
   ],
-  "bottomLine": "Currently approved providers for OpenClaw 1.0: ChatGPT Plus (codex/gpt-5.5), OpenAI API (gpt-5-nano), DeepSeek (deepseek-chat), and MiniMax (MiniMax-M2.7)."
+  "bottomLine": "Currently approved providers for OpenClaw 1.0:"
 }
