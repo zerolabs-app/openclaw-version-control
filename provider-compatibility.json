@@ -1,0 +1,9 @@
+{
+  "lastUpdated": "2026-07-10",
+  "providers": [
+    { "id": "deepseek", "label": "DeepSeek", "mainSessionReliable": true, "notes": "Confirmed working in Main Session" },
+    { "id": "chatgpt-plus", "label": "ChatGPT Plus (OAuth)", "mainSessionReliable": true, "notes": "Confirmed working in Main Session" },
+    { "id": "minimax", "label": "MiniMax", "mainSessionReliable": true, "notes": "Confirmed working in Main Session" },
+    { "id": "openai-api", "label": "OpenAI API (key-based)", "mainSessionReliable": false, "notes": "Main Session jobs are referenced but never execute - use Isolated Session" }
+  ]
+}
