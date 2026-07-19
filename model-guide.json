@@ -1,6 +1,6 @@
 {
   "title": "OpenClaw Model Guide",
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-07-19",
   "testedConfigurations": [
     {
       "Provider": "OPENAI ChatGPT Plus",
@@ -8,6 +8,7 @@
       "Use Your LLM Account": "Yes",
       "API Key Needed": "No",
       "Memory": "Main",
+      "Cost": "$ - flat subscription",
       "Status": "Approved",
       "Notes": "Successfully completed OpenClaw testing."
     },
@@ -15,29 +16,41 @@
       "Provider": "OpenAI API",
       "Model": "gpt-5-nano",
       "Use Your LLM Account": "No",
-      "API Key Needed": "Yes",
+      "API Key Needed": "Yes (OpenAI)",
       "Memory": "Isolated",
+      "Cost": "$$ - metered",
       "Status": "Approved",
-      "Notes": "Successfully completed OpenClaw testing."
+      "Notes": "Requires Isolated Session - Main Session jobs get created but never actually run on OpenAI API."
     },
     {
       "Provider": "DeepSeek",
       "Model": "deepseek-chat",
       "Use Your LLM Account": "No",
-      "API Key Needed": "Yes",
+      "API Key Needed": "Yes (DeepSeek)",
       "Memory": "Main",
+      "Cost": "$ - cheapest metered option",
       "Status": "Approved",
       "Notes": "Successfully completed OpenClaw testing."
     },
     {
-      "Provider": "MiniMax",
+      "Provider": "MiniMax (via OpenRouter)",
       "Model": "MiniMax-M2.7",
-      "Use Your LLM Account": "Yes",
-      "API Key Needed": "No",
+      "Use Your LLM Account": "No",
+      "API Key Needed": "Yes (OpenRouter)",
       "Memory": "Main",
+      "Cost": "$$ - low-moderate metered",
       "Status": "Approved",
-      "Notes": "Successfully completed OpenClaw testing."
-    }
-  ],
-  "bottomLine": "Currently approved providers for OpenClaw 1.0:"
-}
+      "Notes": "Most extensively tested provider - confirmed reliable across many real-estate, travel, vehicle, and social-media search tasks."
+    },
+    {
+      "Provider": "Google Gemini (via OpenRouter)",
+      "Model": "gemini-3.1-flash-lite-preview",
+      "Use Your LLM Account": "No",
+      "API Key Needed": "Yes (OpenRouter)",
+      "Memory": "Main",
+      "Cost": "$ - cheap, fast",
+      "Status": "Approved",
+      "Notes": "Completes cleanly with correct artifacts. One recurring gap found and fixed: occasionally skipped updating source-performance.json for general web searches with no named source visited."
+    },
+    {
+      "Provider": "Anthropic Claude (via OpenRouter)",
