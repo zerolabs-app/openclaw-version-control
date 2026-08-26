@@ -1,11 +1,3 @@
 {
-  "items": [
-    {
-      "id": "plugin-trust",
-      "title": "Enable Newly Added Plugins",
-      "description": "OpenClaw ships with dozens of built-in plugins, already trusted. If you separately install a new one yourself...",
-      "action": "fix-plugin-trust",
-      "buttonLabel": "Run Now"
-    }
-  ]
+  "items": []
 }
