@@ -1,7 +1,18 @@
 {
-  "id": "check-recent-errors",
-  "title": "Check Recent Tasks & Cron Jobs for Errors",
-  "description": "Opens a terminal and asks OpenClaw to review your last 5 tasks and last 5 cron job runs for anything abnormal - errors, timeouts, malformed result files, a task stuck at \"running\" with no recent activity - and report back what it actually finds, with the specific file and timestamp for each issue. If nothing's wrong, it'll say so rather than inventing something to report.",
-  "action": "check-recent-errors",
-  "buttonLabel": "Check Now"
+  "items": [
+    {
+      "id": "plugin-trust",
+      "title": "Enable Newly Added Plugins",
+      "description": "OpenClaw ships with dozens of built-in plugins, already trusted. If you separately install a new one yourself (like a web search or provider plugin) after initial setup, OpenClaw treats it as untrusted until you say otherwise - it'll keep showing a \"discovered, non-bundled plugins may auto-load\" warning on every CLI run until it's added to the trust list. Setup Guide's first step already does this once automatically, but if you install something new later, run it again here to pick up the new one - it only adds plugins you've actually installed yourself, nothing gets trusted that you didn't already choose to add.",
+      "action": "fix-plugin-trust",
+      "buttonLabel": "Run Now"
+    },
+    {
+      "id": "check-recent-errors",
+      "title": "Check Recent Tasks & Cron Jobs for Errors",
+      "description": "Opens a terminal and asks OpenClaw to review your last 5 tasks and last 5 cron job runs for anything abnormal - errors, timeouts, malformed result files, a task stuck at \"running\" with no recent activity - and report back what it actually finds, with the specific file and timestamp for each issue. If nothing's wrong, it'll say so rather than inventing something to report.",
+      "action": "check-recent-errors",
+      "buttonLabel": "Check Now"
+    }
+  ]
 }
