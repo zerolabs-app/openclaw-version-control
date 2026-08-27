@@ -1,6 +1,6 @@
 {
   "title": "OpenClaw Model Guide",
-  "lastUpdated": "2026-07-19",
+  "lastUpdated": "2026-08-26",
   "testedConfigurations": [
     {
       "Provider": "OPENAI ChatGPT Plus",
@@ -51,6 +51,6 @@
       "Cost": "$ - cheap, fast",
       "Status": "Approved",
       "Notes": "Completes cleanly with correct artifacts. One recurring gap found and fixed: occasionally skipped updating source-performance.json for general web searches with no named source visited."
-    },
-    {
-      "Provider": "Anthropic Claude (via OpenRouter)",
+    }
+  ]
+}
