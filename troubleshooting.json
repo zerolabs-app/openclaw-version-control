@@ -13,6 +13,13 @@
       "description": "Opens a terminal and asks OpenClaw to review your last 5 tasks and last 5 cron job runs for anything abnormal - errors, timeouts, malformed result files, a task stuck at \"running\" with no recent activity - and report back what it actually finds, with the specific file and timestamp for each issue. If nothing's wrong, it'll say so rather than inventing something to report.",
       "action": "check-recent-errors",
       "buttonLabel": "Check Now"
+    },
+    {
+      "id": "sync-task-prompts",
+      "title": "Sync Task Templates Now",
+      "description": "Task templates (Vehicle Hunter, Job Hunter with Resume, and the rest) normally sync automatically when Mission Control starts, and again every hour. Run this to trigger that immediately instead of waiting, and to see the real result directly - which templates were newly downloaded, which existing ones had actual changes worth updating, or the exact error if the sync failed for any reason.",
+      "action": "sync-task-prompts",
+      "buttonLabel": "Sync Now"
     }
   ]
 }
