@@ -1,56 +1,56 @@
 {
   "title": "OpenClaw Model Guide",
-  "lastUpdated": "2026-08-26",
+  "lastUpdated": "2026-10-24",
   "testedConfigurations": [
     {
-      "Provider": "OPENAI ChatGPT Plus",
-      "Model": "codex/gpt-5.5",
+      "Provider": "OpenAI ChatGPT plan (sign in)",
+      "Model": "GPT-6 Luna",
       "Use Your LLM Account": "Yes",
       "API Key Needed": "No",
-      "Memory": "Main",
-      "Cost": "$ - flat subscription",
+      "Tested On": "OpenClaw 2026.9.33",
+      "Cost": "$ - uses your ChatGPT plan's limit",
       "Status": "Approved",
-      "Notes": "Successfully completed OpenClaw testing."
-    },
-    {
-      "Provider": "OpenAI API",
-      "Model": "gpt-5-nano",
-      "Use Your LLM Account": "No",
-      "API Key Needed": "Yes (OpenAI)",
-      "Memory": "Isolated",
-      "Cost": "$$ - metered",
-      "Status": "Approved",
-      "Notes": "Requires Isolated Session - Main Session jobs get created but never actually run on OpenAI API."
+      "Notes": "Recommended main model. Cheapest on the plan's limit; with tasks in their own fresh chats it searches 5-20 sites per run. All ChatGPT-plan models share one plan limit."
     },
     {
       "Provider": "DeepSeek",
-      "Model": "deepseek-chat",
+      "Model": "DeepSeek V4 Flash",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes (DeepSeek)",
-      "Memory": "Main",
+      "Tested On": "OpenClaw 2026.9.33",
       "Cost": "$ - cheapest metered option",
       "Status": "Approved",
-      "Notes": "Successfully completed OpenClaw testing."
+      "Notes": "Recommended backup model. Needs the DeepSeek plugin version that matches OpenClaw (@openclaw/deepseek-provider@2026.9.33). V4 Pro costs about 10x more."
+    },
+    {
+      "Provider": "OpenAI ChatGPT plan (sign in)",
+      "Model": "GPT-6 Astra",
+      "Use Your LLM Account": "Yes",
+      "API Key Needed": "No",
+      "Tested On": "OpenClaw 2026.9.33",
+      "Cost": "$$$ - uses the plan limit fast",
+      "Status": "Works - not recommended",
+      "Notes": "Works, but uses up the ChatGPT plan's limit many times faster than Luna. Not needed for Mission Control tasks."
     },
     {
       "Provider": "MiniMax (via OpenRouter)",
       "Model": "MiniMax-M2.7",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes (OpenRouter)",
-      "Memory": "Main",
+      "Tested On": "OpenClaw 4.23 (older)",
       "Cost": "$$ - low-moderate metered",
-      "Status": "Approved",
-      "Notes": "Most extensively tested provider - confirmed reliable across many real-estate, travel, vehicle, and social-media search tasks."
+      "Status": "Approved on 4.23",
+      "Notes": "Reliable across many search tasks on OpenClaw 4.23. Not yet re-tested on 2026.9."
     },
     {
       "Provider": "Google Gemini (via OpenRouter)",
       "Model": "gemini-3.1-flash-lite-preview",
       "Use Your LLM Account": "No",
       "API Key Needed": "Yes (OpenRouter)",
-      "Memory": "Main",
+      "Tested On": "OpenClaw 4.23 (older)",
       "Cost": "$ - cheap, fast",
-      "Status": "Approved",
-      "Notes": "Completes cleanly with correct artifacts. One recurring gap found and fixed: occasionally skipped updating source-performance.json for general web searches with no named source visited."
+      "Status": "Approved on 4.23",
+      "Notes": "Completed cleanly on OpenClaw 4.23. Not yet re-tested on 2026.9."
     }
   ]
 }
