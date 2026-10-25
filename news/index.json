@@ -1,0 +1,18 @@
+[
+  {
+    "id": "2026-10-tested-9-33",
+    "title": "Tested OpenClaw version: 2026.9.33",
+    "date": "2026-10-25",
+    "summary": "Mission Control is tested on OpenClaw 2026.9.33. Wait for a note here before upgrading.",
+    "file": "2026-10-tested-9-33.md",
+    "edition": "all"
+  },
+  {
+    "id": "2026-10-research-folders",
+    "title": "New: research folders and job notes",
+    "date": "2026-10-25",
+    "summary": "Prompts can keep files between runs, and scheduled jobs now remember what earlier runs found.",
+    "file": "2026-10-research-folders.md",
+    "edition": "all"
+  }
+]
