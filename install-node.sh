@@ -1,40 +1,45 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# Versions live in node-version.txt and nvm-version.txt. Strip spaces and
-# Windows line endings so a stray newline can't break the download links.
-NODE_VERSION=$(curl -fsSL https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/node-version.txt | tr -d '[:space:]')
-NVM_VERSION=$(curl -fsSL https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/nvm-version.txt | tr -d '[:space:]')
+# Installs Node.js system-wide (NodeSource apt packages), the way
+# OpenClaw's gateway service expects - not through nvm, which OpenClaw
+# warns "can break after upgrades".
+#
+# node-version.txt holds the tested version (e.g. 24.22.0). Only its major
+# number is used here: NodeSource installs the newest release of that line.
 
-if [ -z "$NODE_VERSION" ] || [ -z "$NVM_VERSION" ]; then
-  echo "Couldn't read the Node.js / nvm versions to install."
+NODE_VERSION=$(curl -fsSL https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/node-version.txt | tr -d '[:space:]')
+NODE_MAJOR="${NODE_VERSION%%.*}"
+
+if ! [[ "$NODE_MAJOR" =~ ^[0-9]+$ ]]; then
+  echo "Couldn't read the Node.js version to install (got: '$NODE_VERSION')."
   echo "Check your internet connection and run this again."
   exit 1
 fi
 
-echo "Installing NVM $NVM_VERSION"
+echo "Installing Node.js $NODE_MAJOR (enter your Ubuntu password if asked)"
 
-# pipefail: if the download fails, stop here instead of running an empty script
-curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh" | bash
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+SETUP=$(mktemp)
+curl -fsSL "https://deb.nodesource.com/setup_${NODE_MAJOR}.x" -o "$SETUP"
+sudo -E bash "$SETUP"
+rm -f "$SETUP"
+sudo apt-get install -y nodejs
 
-export NVM_DIR="$HOME/.nvm"
-
-# nvm isn't written for "set -e" - load and run it with that switched off
-set +e
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# npm's global folder in your home folder, so "npm install -g" never
+# needs sudo. The PATH line goes in both ~/.profile (login shells, which
+# Mission Control uses) and ~/.bashrc (terminal windows).
+mkdir -p "$HOME/.npm-global"
+npm config set prefix "$HOME/.npm-global"
+LINE='export PATH="$HOME/.npm-global/bin:$PATH"'
+for f in "$HOME/.profile" "$HOME/.bashrc"; do
+  touch "$f"
+  grep -qxF "$LINE" "$f" || printf '\n# OpenClaw on Windows: npm global programs\n%s\n' "$LINE" >> "$f"
+done
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 echo
-echo "Installing Node.js $NODE_VERSION"
-
-nvm install "$NODE_VERSION" && nvm use "$NODE_VERSION" && nvm alias default "$NODE_VERSION"
-STATUS=$?
-set -e
-
-if [ "$STATUS" -ne 0 ]; then
-  echo "Node.js $NODE_VERSION didn't install - scroll up for the error."
-  exit 1
-fi
-
-echo
+echo "Node.js: $(command -v node)"
 node -v
 npm -v
