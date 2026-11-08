@@ -5,16 +5,17 @@ set -eo pipefail
 # OpenClaw's gateway service expects - not through nvm, which OpenClaw
 # warns "can break after upgrades".
 #
-# node-version.txt holds the tested version (e.g. 24.22.0). Only its major
-# number is used here: NodeSource installs the newest release of that line.
+# node-version.txt holds the tested version (e.g. 24 or 24.22.0). Only its
+# major number is used: NodeSource installs the newest release of that line.
 
-NODE_VERSION=$(curl -fsSL https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/node-version.txt | tr -d '[:space:]')
+# OpenClaw needs Node 24.16+ (or 26.1+); 24 is used when the file holds
+# anything else (an old nvm-style value like "--lts", or nothing).
+DEFAULT_MAJOR=24
+NODE_VERSION=$(curl -fsSL https://raw.githubusercontent.com/zerolabs-app/openclaw-version-control/main/node-version.txt 2>/dev/null | tr -d '[:space:]' || true)
+NODE_VERSION="${NODE_VERSION#v}"
 NODE_MAJOR="${NODE_VERSION%%.*}"
-
-if ! [[ "$NODE_MAJOR" =~ ^[0-9]+$ ]]; then
-  echo "Couldn't read the Node.js version to install (got: '$NODE_VERSION')."
-  echo "Check your internet connection and run this again."
-  exit 1
+if ! [[ "$NODE_MAJOR" =~ ^[0-9]+$ ]] || [ "$NODE_MAJOR" -lt 24 ]; then
+  NODE_MAJOR=$DEFAULT_MAJOR
 fi
 
 echo "Installing Node.js $NODE_MAJOR (enter your Ubuntu password if asked)"
